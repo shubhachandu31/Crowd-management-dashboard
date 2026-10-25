@@ -45,7 +45,7 @@ src/
 
 **Vercel** – import the GitHub repo, framework preset *Vite*, build `npm run build`, output `dist`, add env var `VITE_API_BASE`. `vercel.json` handles SPA routing.
 
-**Netlify** – build `npm run build`, publish `dist`. `public/_redirects` handles SPA routing.
+**Netlify** – the repository-root `netlify.toml` sets the base directory to `crowd-dashboard`, installs locked dependencies including development tools with `npm ci --include=dev`, runs `npm run build`, and publishes `dist` relative to that base (`crowd-dashboard/dist`). Installing development dependencies ensures Vite is available during deployment. `public/_redirects` handles SPA routing.
 
 ## Notes
 - All times are sent to the API as UTC epoch-millis (`fromUtc`, `toUtc`).
